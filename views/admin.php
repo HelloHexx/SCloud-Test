@@ -30,17 +30,44 @@
         </nav>
     </header>
 
-    <div class="container mt-5 bg-light rounded board">
-        <h1 class="mx-auto"><?php echo $data->Title ?></h1>
-        <hr>
-        <div class="container">
-            <p class="pt-5 pb-5" style="text-align:center;">
-                <?php   echo $data->text ?>
-            </p>
+    <div class="container-fluid">
+        <h1 class="mb-5 mt-5" style="text-align: center;">Админ панель</h1>
+    </div>
+    <div class="container m-auto p-2 bg-light rounded board">
+        <div class="container p-4">
+            <h2>Добавление статьи</h2>
+            <form action="/add_post" method="POST">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Text</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="text"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="inputDate">Введите дату:</label>
+                    <input type="date" class="form-control" name="date">
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
             <hr>
-            <p style="text-align:right;">
-                <?php echo $data->created_at?>
-            </p>
+            <h2>Удаление статей</h2>
+            <form action="/add_post" method="POST">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect2">Выберите статьи(ю)</label>
+                    <select multiple class="form-control" id="exampleFormControlSelect2" name="del">
+                        <?php
+            foreach ($data as $item) {
+                echo("<option value='$item->id' >$item->id : $item->Title</option>");
+            }
+            ?>
+                      <!-- <option>1</option> -->
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
+
         </div>
 
     </div>

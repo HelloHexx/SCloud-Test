@@ -23,10 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>
@@ -36,11 +33,24 @@
     <div class="container mt-5 bg-light rounded board">
         <h1 class="mx-auto">Новости</h1>
         <hr>
-        <?php 
-            echo "<p>";
-            echo "Hello!";
-            echo "</p>";   
-        ?>
+        <div class="container">
+            <div class="row">
+            <?php
+            foreach ($data as $item) {
+                echo "<div class='col-sm mb-3'>";
+                echo("<div class='card' style='width: 18rem; height:14rem;'>
+                <div class='card-body'>
+                  <h5 class='card-title'>$item->Title</h5>
+                  <p class='card-text'>".mb_strimwidth($item->text, 0, 50, "...")."</p>
+                  <p class='card-text'>$item->created_at</p>
+                  <a href='/post/$item->id' class='card-link'>Читать...</a>
+                </div>
+              </div>");
+              echo "</div>";
+            }
+            ?>
+            </div>
+        </div>
 
     </div>
 

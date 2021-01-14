@@ -3,8 +3,7 @@ body {
 }
 
 body,
-html,
-.board {
+html {
     height: 100%;
 }
 
