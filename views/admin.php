@@ -39,24 +39,24 @@
             <form action="/add_post" method="POST">
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" class="form-control" id="title" name="title">
+                    <input type="text" class="form-control" id="title" name="title" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Text</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="text"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="text" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="inputDate">Введите дату:</label>
-                    <input type="date" class="form-control" name="date">
+                    <input type="date" class="form-control" name="date" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Отправить</button>
             </form>
             <hr>
             <h2>Удаление статей</h2>
-            <form action="/add_post" method="POST">
+            <form action="/del_post" method="POST">
                 <div class="form-group">
                     <label for="exampleFormControlSelect2">Выберите статьи(ю)</label>
-                    <select multiple class="form-control" id="exampleFormControlSelect2" name="del">
+                    <select class="form-control" id="exampleFormControlSelect2" name="del">
                         <?php
             foreach ($data as $item) {
                 echo("<option value='$item->id' >$item->id : $item->Title</option>");
@@ -64,6 +64,28 @@
             ?>
                       <!-- <option>1</option> -->
                     </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
+            <hr>
+            <h2>Изменение статей</h2>
+            <h6>Выберите статью для изменения</h6>
+            <form action="/upd_post" method="POST">
+                <select class="form-control" id="exampleFormControlSelect2" name="upd">
+                    <?php
+        foreach ($data as $item) {
+            echo("<option value='$item->id' >$item->id : $item->Title</option>");
+        }
+        ?>
+                  <!-- <option>1</option> -->
+                </select>
+                <div class="form-group">
+                    <label for="title">New Title</label>
+                    <input type="text" class="form-control" id="title" name="title">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">New Text</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="text"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Отправить</button>
             </form>

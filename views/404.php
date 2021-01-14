@@ -29,18 +29,9 @@
             </div>
         </nav>
     </header>
+
     <div class="container mt-5 bg-light rounded board">
-        <h1 class="mx-auto"><?php echo $data->Title ?></h1>
-        <hr>
-        <div class="container">
-            <p class="pt-5 pb-5" style="text-align:center;">
-                <?php   echo $data->text ?>
-            </p>
-            <hr>
-            <p style="text-align:right;">
-                <?php echo $data->created_at?>
-            </p>
-        </div>
+        <h1 style="text-align:center">Упс! Ошибка 404: Страница <?php echo $data ?> не найдена!</h1>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
